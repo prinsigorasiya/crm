@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Owner\AuthController;
+use App\Http\Controllers\Owner\ProductController;
 use App\Http\Controllers\Owner\ProjectController;
 use App\Http\Controllers\Owner\ProjectTimeSheetController;
 use App\Http\Controllers\Owner\ReportController;
@@ -65,6 +66,15 @@ Route::group(['prefix' => 'v1', 'middleware' => [LogRoute::class, XssSanitizatio
             Route::group(['prefix' => 'report'], function () {
                 Route::controller(ReportController::class)->group(function () {
                     Route::post('/list', 'index');
+                });
+            });
+
+            Route::group(['prefix' => 'product'], function () {
+                Route::controller(ProductController::class)->group(function () {
+                    Route::post('/list', 'index');
+                    Route::post('/inPurchase', 'InPurchase');
+                    Route::post('/order', 'Order');
+                    Route::post('/receive', 'Receive');
                 });
             });
         });

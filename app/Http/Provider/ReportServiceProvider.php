@@ -66,6 +66,7 @@ class ReportServiceProvider extends Controller
                ]);
                $total_count = ProjectTimeSheet::select('id')->count();
                $filter_count = $query->clone()->count();
+               $total_duration = $query->clone()->sum('duration');
                $project_time_sheet_list = $query->clone()
                     ->orderBy($sort_by, $sort_order)
                     ->skip($start)
@@ -79,6 +80,7 @@ class ReportServiceProvider extends Controller
                     'data' => [
                          'total_count' => $total_count,
                          'filter_count' => $filter_count,
+                         'total_duration' => $total_duration,
                          'project_time_sheet_list' => $project_time_sheet_list,
                     ],
                ];

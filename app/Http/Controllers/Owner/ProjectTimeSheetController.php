@@ -260,6 +260,18 @@ class ProjectTimeSheetController extends Controller
       *          type="string",
       *         ),
       *       ),
+      *
+      *     @OA\Parameter(
+      *          name="date",
+      *          required=true,
+      *          in="query",
+      *          example="100",
+      *          description="Enter Date",
+      *
+      *          @OA\Schema(
+      *          type="string",
+      *         ),
+      *       ),
       * 
       *     @OA\Parameter(
       *          name="notes",

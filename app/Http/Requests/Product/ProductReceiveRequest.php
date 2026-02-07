@@ -31,7 +31,7 @@ class ProductReceiveRequest extends FormRequest
                "receive_date" => ['required', 'date'],
                "receiver_name" => ['required', 'string', 'max:255'],
                "price_per_piece" => ['required', 'numeric', 'min:0'],
-               "vendor_name" => ['required', 'string', 'max:255'],
+               "vendor" => ['required', 'string', 'max:255'],
                "sku" => ['required', 'string', 'max:255'],
                "mpn" => ['required', 'string', 'max:255'],
           ];

@@ -279,6 +279,27 @@ class ProductController extends Controller
       *          type="string",
       *         ),
       *     ),
+
+      *     @OA\RequestBody(
+      *         description="Upload Image",
+      *         required=false,
+      *
+      *         @OA\MediaType(
+      *             mediaType="multipart/form-data",
+      *
+      *             @OA\Schema(
+      *                 type="object",
+      *
+      *                 @OA\Property(
+      *                     property="image",
+      *                     description="Image to upload",
+      *                     type="string",
+      *                     format="binary"
+      *                 ),
+      *             ),
+      *         ),
+      *      ),
+      *
       *
       *      @OA\Response(
       *         response=200,

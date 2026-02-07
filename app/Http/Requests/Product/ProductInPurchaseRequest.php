@@ -38,6 +38,7 @@ class ProductInPurchaseRequest extends FormRequest
                "gerber_link" => ['required', 'string', 'max:255'],
                "target_receive_date" => ['required', 'date'],
                "request_person" => ['required', 'string', 'max:255'],
+               "image" => ['nullable', 'image', 'max:2048'] 
           ];
      }
 

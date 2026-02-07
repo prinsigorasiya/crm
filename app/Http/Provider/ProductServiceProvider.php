@@ -3,8 +3,11 @@
 namespace App\Http\Provider;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\Users;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductServiceProvider extends Controller
 {
@@ -57,6 +60,22 @@ class ProductServiceProvider extends Controller
      {
           try {
 
+               $validatedData['status'] = 'InPurchase';
+
+               if (!empty($validatedData['image'])) {
+                    if ($validatedData['image']->hasFile('image')) {
+                         $image = $validatedData['image']->file('image');
+                         $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+                         // Ensure the directory exists using the public disk
+                         if (!Storage::disk('public')->exists('products')) {
+                              Storage::disk('public')->makeDirectory('products', 0777, true, true);
+                         }
+
+                         // Store the image correctly
+                         $imagePath = $image->storeAs('products', $imageName);
+                    }
+               }
                $product = Product::create($validatedData);
 
                $data = [
@@ -81,6 +100,7 @@ class ProductServiceProvider extends Controller
      {
           try {
 
+               $validatedData['status'] = 'Ordered';
                $product = Product::where('serial_no', $validatedData['serial_no'])->first();
 
                if (!$product) {
@@ -111,6 +131,7 @@ class ProductServiceProvider extends Controller
      {
           try {
 
+               $validatedData['status'] = 'Received';
                $product = Product::where('serial_no', $validatedData['serial_no'])->first();
 
                if (!$product) {
