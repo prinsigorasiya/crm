@@ -32,7 +32,7 @@ class UserUpdateRequest extends FormRequest
                'last_name' => ['required', 'string', 'max:255'],
                'user_name' => ['required', 'string', 'max:255', Rule::unique('users', 'user_name')],
                'password' => ['required', 'string', 'min:8'],
-               'email' => ['required', 'string', 'email:rfc,dns', 'max:255', Rule::unique('users', 'email')],
+               'email' => ['required', 'string',Rule::unique('users', 'email')],
                'department' => ['required', 'string', 'max:255'],
 
           ];
