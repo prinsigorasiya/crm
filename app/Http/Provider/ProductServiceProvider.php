@@ -62,20 +62,20 @@ class ProductServiceProvider extends Controller
 
                $validatedData['status'] = 'InPurchase';
 
-               if (!empty($validatedData['image'])) {
-                    if ($validatedData['image']->hasFile('image')) {
-                         $image = $validatedData['image']->file('image');
-                         $imageName = time() . '.' . $image->getClientOriginalExtension();
+               // if (!empty($validatedData['image'])) {
+               //      if ($validatedData['image']->hasFile('image')) {
+               //           $image = $validatedData['image']->file('image');
+               //           $imageName = time() . '.' . $image->getClientOriginalExtension();
 
-                         // Ensure the directory exists using the public disk
-                         if (!Storage::disk('public')->exists('products')) {
-                              Storage::disk('public')->makeDirectory('products', 0777, true, true);
-                         }
+               //           // Ensure the directory exists using the public disk
+               //           if (!Storage::disk('public')->exists('products')) {
+               //                Storage::disk('public')->makeDirectory('products', 0777, true, true);
+               //           }
 
-                         // Store the image correctly
-                         $imagePath = $image->storeAs('products', $imageName);
-                    }
-               }
+               //           // Store the image correctly
+               //           $imagePath = $image->storeAs('products', $imageName);
+               //      }
+               // }
                $product = Product::create($validatedData);
 
                $data = [
