@@ -1,0 +1,27 @@
+created:
+    - app/Http/Controllers/FacebookFormController.php
+    - database/factories/FacebookFormFactory.php
+    - database/migrations/2025_10_03_122239_create_facebook_forms_table.php
+    - app/Models/FacebookForm.php
+    - tests/Feature/Http/Controllers/FacebookFormControllerTest.php
+    - app/Http/Requests/FacebookFormStoreRequest.php
+    - app/Http/Requests/FacebookFormUpdateRequest.php
+    - app/Http/Resources/FacebookFormResource.php
+updated:
+    - routes/api.php
+models:
+    ApiCallLog: { request_call: 'longtext nullable', request_fields: 'longtext nullable', user_id: 'string nullable', ip_address: 'string nullable', response: 'longtext nullable', url: 'string nullable' }
+    Company: { name: 'string:60', email: 'longtext nullable', mobile: 'string nullable', logo: 'text nullable', owner_approval: "enum:'Yes','No' default:No", description: 'longtext nullable', address: 'longtext nullable', country: 'text nullable', state: 'text nullable', city: 'text nullable', gst_number: 'string nullable', pan_number: 'string nullable', tan_number: 'string nullable', status: "enum:'Active','Inactive' default:Active", created_id: 'biginteger unsigned nullable', updated_id: 'biginteger unsigned nullable', deleted_id: 'biginteger unsigned nullable' }
+    Lead: { id: id, title: 'string nullable', type: 'string nullable', description: 'text nullable', tag_id: 'id nullable foreign:tags', company_id: 'id nullable foreign:companies', contact_id: 'id nullable foreign:user_contacts', expected_close_date: 'datetime nullable', assign_to: 'string nullable', city: 'string nullable', state: 'string nullable', country: 'string nullable', referral: 'string nullable', lead_metadata_json: 'longText nullable', lead_metadata_id: 'string nullable', status: 'enum:Active,Inactive default:Active', created_id: 'id nullable foreign:users', updated_id: 'id nullable foreign:users', deleted_id: 'id nullable foreign:users', softdeletes: softDeletes, timestamps: timestamps }
+    LeadStatus: {  }
+    Module: { name: 'string:60', short_code: string, status: "enum:'Active','Inactive' default:Active", created_id: 'biginteger unsigned nullable', updated_id: 'biginteger unsigned nullable', deleted_id: 'biginteger unsigned nullable' }
+    Otp: { otp: string, email: 'string nullable', mobile: 'string nullable', status: "enum:'Active','Inactive' default:Active", created_id: 'biginteger unsigned nullable', updated_id: 'biginteger unsigned nullable', deleted_id: 'biginteger unsigned nullable' }
+    Permission: { module_id: 'biginteger unsigned', name: 'string:60', status: "enum:'Active','Inactive' default:Active", created_id: 'biginteger unsigned nullable', updated_id: 'biginteger unsigned nullable', deleted_id: 'biginteger unsigned nullable' }
+    Role: { name: 'string:60', group: 'string nullable', status: "enum:'Active','Inactive' default:Active", created_id: 'biginteger unsigned nullable', updated_id: 'biginteger unsigned nullable', deleted_id: 'biginteger unsigned nullable' }
+    RolePermission: { permission_id: 'biginteger unsigned', role_id: 'biginteger unsigned' }
+    UserContact: { name: 'string:60', email: 'longtext nullable', mobile: 'longtext nullable', Company_id: 'biginteger unsigned nullable', status: "enum:'Active','Inactive' default:Active", created_id: 'biginteger unsigned nullable', updated_id: 'biginteger unsigned nullable', deleted_id: 'biginteger unsigned nullable' }
+    Users: { name: 'string:60', email: 'longtext nullable', email_verified_at: 'timestamp nullable', mobile: string, profile_image: 'string nullable', owner_approval: "enum:'Yes','No' default:No", description: 'longtext nullable', address: 'longtext nullable', country: 'text nullable', state: 'text nullable', city: 'text nullable', role_id: 'biginteger unsigned', status: "enum:'Active','Inactive' default:Active", created_id: 'biginteger unsigned', updated_id: 'biginteger unsigned nullable', deleted_id: 'biginteger unsigned nullable' }
+    Tag: { id: id, tag: 'string nullable', colour: 'string nullable', site_slug: 'string nullable', status: 'enum:Active,Inactive default:Active', created_id: 'id nullable foreign:users', updated_id: 'id nullable foreign:users', deleted_id: 'id nullable foreign:users', softdeletes: softDeletes, timestamps: timestamps }
+    ThirdPartyAuth: { id: id, user_id: 'id nullable foreign:users', access_token: 'string nullable', refresh_token: 'string nullable', type: 'string nullable', user_data: 'text nullable', json_data: 'text nullable', status: 'enum:Active,Inactive default:Active', created_id: 'id nullable foreign:users', updated_id: 'id nullable foreign:users', deleted_id: 'id nullable foreign:users', softdeletes: softDeletes, timestamps: timestamps }
+    FacebookPage: { id: id, account_id: 'string nullable', page_id: 'string nullable', page_name: 'string nullable', json_data: 'longtext nullable', status: 'enum:Active,Inactive default:Active', created_id: 'id nullable foreign:users', updated_id: 'id nullable foreign:users', deleted_id: 'id nullable foreign:users', softdeletes: softDeletes, timestamps: timestamps }
+    FacebookForm: { id: id, facebook_page_id: 'id nullable foreign:facebook_pages', account_id: 'string nullable', page_id: 'string nullable', form_id: 'string nullable', form_name: 'string nullable', json_data: 'longtext nullable', status: 'enum:Active,Inactive default:Active', created_id: 'id nullable foreign:users', updated_id: 'id nullable foreign:users', deleted_id: 'id nullable foreign:users', softdeletes: softDeletes, timestamps: timestamps }

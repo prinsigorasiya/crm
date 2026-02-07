@@ -1,0 +1,1968 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "CRM API Documentation",
+        "description": "CRM API Documentation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/owner/login/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "owner login",
+                "description": "owner login",
+                "operationId": "OwnerLogin",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "prinsi@yopmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "123456"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                }
+            }
+        },
+        "/api/v1/owner/product/list": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "List Product",
+                "description": "List Product",
+                "operationId": "ProductList",
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "no of record you already get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "no of record you want to get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "10"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search by name, mobile, email",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Sort by column(eg. id, name, mobile, email)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_order",
+                        "in": "query",
+                        "description": "Sort order (asc or desc)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/product/inPurchase": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "In Purchase a Product",
+                "description": "Product",
+                "operationId": "ProductInPurchase",
+                "parameters": [
+                    {
+                        "name": "serial_no",
+                        "in": "query",
+                        "description": "Enter Product Serial No",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Product Serial No"
+                    },
+                    {
+                        "name": "requiredment_type",
+                        "in": "query",
+                        "description": "Enter Product Requiredment Type",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Product Requiredment Type"
+                    },
+                    {
+                        "name": "project_code",
+                        "in": "query",
+                        "description": "Enter Project Code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Product Project Code"
+                    },
+                    {
+                        "name": "pcb_code",
+                        "in": "query",
+                        "description": "Enter PCB Code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "100"
+                    },
+                    {
+                        "name": "quantity",
+                        "in": "query",
+                        "description": "Enter Quantity",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "8"
+                    },
+                    {
+                        "name": "unit",
+                        "in": "query",
+                        "description": "Enter Unit",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kg"
+                    },
+                    {
+                        "name": "layer",
+                        "in": "query",
+                        "description": "Enter Layer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kg"
+                    },
+                    {
+                        "name": "pcb_thickness",
+                        "in": "query",
+                        "description": "Enter PCB Thickness",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0.5"
+                    },
+                    {
+                        "name": "sku",
+                        "in": "query",
+                        "description": "Enter sku",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kg"
+                    },
+                    {
+                        "name": "mpn",
+                        "in": "query",
+                        "description": "Enter mpn",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kg"
+                    },
+                    {
+                        "name": "suggested_vendor",
+                        "in": "query",
+                        "description": "Enter suggested_vendor",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kg"
+                    },
+                    {
+                        "name": "gerber_link",
+                        "in": "query",
+                        "description": "Enter Gerber Link",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kg"
+                    },
+                    {
+                        "name": "target_receive_date",
+                        "in": "query",
+                        "description": "Enter target_receive_date",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kg"
+                    },
+                    {
+                        "name": "request_person",
+                        "in": "query",
+                        "description": "Enter request_person",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "kg"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/product/order": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Order a Product",
+                "description": "Product",
+                "operationId": "ProductOrder",
+                "parameters": [
+                    {
+                        "name": "serial_no",
+                        "in": "query",
+                        "description": "Enter Product Serial No",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Product Serial No"
+                    },
+                    {
+                        "name": "order_qty",
+                        "in": "query",
+                        "description": "Enter Product Order Quantity",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Product Order Quantity"
+                    },
+                    {
+                        "name": "price_per_piece",
+                        "in": "query",
+                        "description": "Enter Price Per Piece",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Product Price Per Piece"
+                    },
+                    {
+                        "name": "order_vendor",
+                        "in": "query",
+                        "description": "Enter Order Vendor",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "order_vendor"
+                    },
+                    {
+                        "name": "sku",
+                        "in": "query",
+                        "description": "Enter SKU",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "8"
+                    },
+                    {
+                        "name": "mpn",
+                        "in": "query",
+                        "description": "Enter MPN",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "mpn"
+                    },
+                    {
+                        "name": "order_person",
+                        "in": "query",
+                        "description": "Enter Order Person",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "order_person"
+                    },
+                    {
+                        "name": "order_date",
+                        "in": "query",
+                        "description": "Enter Order Date",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "01-01-2026"
+                    },
+                    {
+                        "name": "expected_date",
+                        "in": "query",
+                        "description": "Enter Expected Date",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "01-01-2026"
+                    },
+                    {
+                        "name": "target_receive_date",
+                        "in": "query",
+                        "description": "Enter Target Receive Date",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "01-01-2026"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/product/receive": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Receive a Product",
+                "description": "Product",
+                "operationId": "ProductReceive",
+                "parameters": [
+                    {
+                        "name": "serial_no",
+                        "in": "query",
+                        "description": "Enter Product Serial No",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Product Serial No"
+                    },
+                    {
+                        "name": "receive_qty",
+                        "in": "query",
+                        "description": "Enter Product Receive Quantity",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Product Receive Quantity"
+                    },
+                    {
+                        "name": "receive_date",
+                        "in": "query",
+                        "description": "Enter Product Receive Date",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Product Receive Date"
+                    },
+                    {
+                        "name": "receiver_name",
+                        "in": "query",
+                        "description": "Enter Receiver Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "receiver_name"
+                    },
+                    {
+                        "name": "price_per_piece",
+                        "in": "query",
+                        "description": "Enter Price Per Piece",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "8"
+                    },
+                    {
+                        "name": "vendor",
+                        "in": "query",
+                        "description": "Enter Vendor",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "vendor"
+                    },
+                    {
+                        "name": "sku",
+                        "in": "query",
+                        "description": "Enter SKU",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "sku"
+                    },
+                    {
+                        "name": "mpn",
+                        "in": "query",
+                        "description": "Enter MPN",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "mpn"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project/list": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "List Project",
+                "description": "List Project",
+                "operationId": "ProjectList",
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "no of record you already get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "no of record you want to get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "10"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search by name, mobile, email",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "Code",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Sort by column(eg. id, name, mobile, email)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_order",
+                        "in": "query",
+                        "description": "Sort order (asc or desc)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project/store": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Store a Project",
+                "description": "Project",
+                "operationId": "ProjectStore",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Enter Project Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Project Name"
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "Enter Project Code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Project Code"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Enter Status(InPlanning, Running, Stopped, Completed)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Active"
+                    },
+                    {
+                        "name": "total_hours",
+                        "in": "query",
+                        "description": "Enter Total Hours",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "100"
+                    },
+                    {
+                        "name": "per_day_hours",
+                        "in": "query",
+                        "description": "Enter Per Day Hours",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "8"
+                    },
+                    {
+                        "name": "assigned_user",
+                        "in": "query",
+                        "description": "Enter Assigned User",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project/update": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Update a Project",
+                "description": "Project",
+                "operationId": "ProjectUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Enter Project Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Project Name"
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "Enter Project Code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Project Code"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Enter Status(InPlanning, Running, Stopped, Completed)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Active"
+                    },
+                    {
+                        "name": "total_hours",
+                        "in": "query",
+                        "description": "Enter Total Hours",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "100"
+                    },
+                    {
+                        "name": "per_day_hours",
+                        "in": "query",
+                        "description": "Enter Per Day Hours",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "8"
+                    },
+                    {
+                        "name": "assigned_user",
+                        "in": "query",
+                        "description": "Enter Assigned User",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1,2,3"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project/view": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "View a Project",
+                "description": "Project",
+                "operationId": "ProjectView",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project/change-status": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Change Project Status",
+                "description": "Project",
+                "operationId": "ProjectChangeStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Enter Status(InPlanning, Running, Stopped, Completed)",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "InPlanning",
+                                "Running",
+                                "Stopped",
+                                "Completed"
+                            ]
+                        },
+                        "example": "Active"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project/destroy": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Destroy a Project",
+                "description": "Project",
+                "operationId": "ProjectDestroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project/drop-down": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Get Project Drop Down",
+                "description": "Project",
+                "operationId": "ProjectDropDown",
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project-timesheet/list": {
+            "post": {
+                "tags": [
+                    "Project Timesheet"
+                ],
+                "summary": "List Project Timesheet",
+                "description": "List Project Timesheet",
+                "operationId": "ProjectTimesheetList",
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "no of record you already get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "no of record you want to get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "10"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search by name, mobile, email",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "query",
+                        "description": "Project ID",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "User ID",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Sort by column(eg. id, name, mobile, email)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_order",
+                        "in": "query",
+                        "description": "Sort order (asc or desc)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project-timesheet/store": {
+            "post": {
+                "tags": [
+                    "Project Timesheet"
+                ],
+                "summary": "Store a Project Timesheet",
+                "description": "Project Timesheet",
+                "operationId": "ProjectTimesheetStore",
+                "parameters": [
+                    {
+                        "name": "project_id",
+                        "in": "query",
+                        "description": "Enter Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "start_time",
+                        "in": "query",
+                        "description": "Enter Start Time",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "100"
+                    },
+                    {
+                        "name": "end_time",
+                        "in": "query",
+                        "description": "Enter End Time",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "8"
+                    },
+                    {
+                        "name": "notes",
+                        "in": "query",
+                        "description": "Enter Notes",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Add notes here"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project-timesheet/update": {
+            "post": {
+                "tags": [
+                    "Project Timesheet"
+                ],
+                "summary": "Update a Project Timesheet",
+                "description": "Project Timesheet",
+                "operationId": "ProjectTimesheetUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "query",
+                        "description": "Enter Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "start_time",
+                        "in": "query",
+                        "description": "Enter Start Time",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "100"
+                    },
+                    {
+                        "name": "end_time",
+                        "in": "query",
+                        "description": "Enter End Time",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "8"
+                    },
+                    {
+                        "name": "notes",
+                        "in": "query",
+                        "description": "Enter Notes",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Add notes here"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project-timesheet/view": {
+            "post": {
+                "tags": [
+                    "Project Timesheet"
+                ],
+                "summary": "View a Project Timesheet",
+                "description": "Project Timesheet",
+                "operationId": "ProjectTimesheetView",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter Project Timesheet ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project-timesheet/change-status": {
+            "post": {
+                "tags": [
+                    "Project Timesheet"
+                ],
+                "summary": "Change Project Timesheet Status",
+                "description": "Project Timesheet",
+                "operationId": "ProjectTimesheetChangeStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter Project Timesheet ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Enter Status(InPlanning, Running, Stopped, Completed)",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "Active",
+                                "Inactive"
+                            ]
+                        },
+                        "example": "Active"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/project-timesheet/destroy": {
+            "post": {
+                "tags": [
+                    "Project Timesheet"
+                ],
+                "summary": "Destroy a Project Timesheet",
+                "description": "Project Timesheet",
+                "operationId": "ProjectTimesheetDestroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter Project Timesheet ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/report/list": {
+            "post": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "List Report",
+                "description": "List Report",
+                "operationId": "ReportList",
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "no of record you already get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "no of record you want to get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "10"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search by name, mobile, email",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "project_id",
+                        "in": "query",
+                        "description": "search by project id",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "query",
+                        "description": "search by user id",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "start_date",
+                        "in": "query",
+                        "description": "search by start date",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "description": "search by end date",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Sort by column(eg. id, name, mobile, email)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_order",
+                        "in": "query",
+                        "description": "Sort order (asc or desc)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/user/list": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List User",
+                "description": "List User",
+                "operationId": "UserList",
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "no of record you already get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "0"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "no of record you want to get",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "10"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search by name, mobile, email",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": "Sort by column(eg. id, name, mobile, email)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "sort_order",
+                        "in": "query",
+                        "description": "Sort order (asc or desc)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/user/store": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Store a User",
+                "description": "User",
+                "operationId": "UserStore",
+                "parameters": [
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "description": "Enter First Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "User First Name"
+                    },
+                    {
+                        "name": "middle_name",
+                        "in": "query",
+                        "description": "Enter Middle Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "User Middle Name"
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "description": "Enter Last Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "User Last Name"
+                    },
+                    {
+                        "name": "user_name",
+                        "in": "query",
+                        "description": "Enter User Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "User User Name"
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Enter Email Address",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "test@yopmail.com"
+                    },
+                    {
+                        "name": "role",
+                        "in": "query",
+                        "description": "Enter Role",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Admin"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Enter Password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "password123"
+                    },
+                    {
+                        "name": "department",
+                        "in": "query",
+                        "description": "Enter Department",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "IT"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/user/update": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update a User",
+                "description": "User",
+                "operationId": "UserUpdate",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "query",
+                        "description": "Enter First Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "User First Name"
+                    },
+                    {
+                        "name": "middle_name",
+                        "in": "query",
+                        "description": "Enter Middle Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "User Middle Name"
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "query",
+                        "description": "Enter Last Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "User Last Name"
+                    },
+                    {
+                        "name": "user_name",
+                        "in": "query",
+                        "description": "Enter User Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "User User Name"
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Enter Email Address",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "test@yopmail.com"
+                    },
+                    {
+                        "name": "role",
+                        "in": "query",
+                        "description": "Enter Role",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Admin"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Enter Password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "password123"
+                    },
+                    {
+                        "name": "department",
+                        "in": "query",
+                        "description": "Enter Department",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "IT"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/user/view": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "View a User",
+                "description": "User",
+                "operationId": "UserView",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/user/change-status": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Change User Status",
+                "description": "User",
+                "operationId": "UserChangeStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Enter Status (Active or Inactive)",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "Active",
+                                "Inactive"
+                            ]
+                        },
+                        "example": "Active"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/user/destroy": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Destroy a User",
+                "description": "User",
+                "operationId": "UserDestroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Enter User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/owner/user/drop-down": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get User Drop Down",
+                "description": "User",
+                "operationId": "UserDropDown",
+                "responses": {
+                    "200": {
+                        "description": "json schema",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid Request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "User",
+            "description": ""
+        },
+        {
+            "name": "Login",
+            "description": "Login"
+        },
+        {
+            "name": "Product",
+            "description": "Product"
+        },
+        {
+            "name": "Project",
+            "description": "Project"
+        },
+        {
+            "name": "Project Timesheet",
+            "description": "Project Timesheet"
+        },
+        {
+            "name": "Report",
+            "description": "Report"
+        }
+    ]
+}
